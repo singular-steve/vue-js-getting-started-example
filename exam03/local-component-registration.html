@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<head>
+  <title>Vue Component Registration - Local Component</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+<div id="app">
+  <button>컨포넌트 등록</button>
+  <my-local-component></my-local-component>
+</div>
+<script>
+  var cmp = {
+    template: '<div>로컬 컴포넌트 등록 완료</div>'
+  };
+
+  new Vue({
+    el: '#app',
+    components: {
+      'my-local-component': cmp
+    }
+  });
+</script>
+</body>
+</html>

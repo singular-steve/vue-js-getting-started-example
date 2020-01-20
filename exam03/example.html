@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue Component Registration Example</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+<div id="app">
+  <head>
+    {{ message }}
+  </head>
+  <todo-footer></todo-footer>
+  <todo-list></todo-list>
+</div>
+
+<script>
+  Vue.component('todo-footer', {
+    template: '<p>This is another global child component</p>'
+  });
+
+  new Vue({
+    el: "#app",
+    data: {
+      message: 'This is a parent component'
+    },
+    components: {
+      'todo-list': {
+        template: '<p>This is another local child component</p>'
+
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
