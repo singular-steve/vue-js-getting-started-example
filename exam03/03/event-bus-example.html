@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Bus Example</title>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id="app">
+  <child-component></child-component>
+</div>
+<script>
+  var eventBus = new Vue();
+  Vue.component('child-component', {
+    template: '<div>하위 컴포넌트 영역<button v-on:click="showLog">Show</button></div>',
+    methods: {
+      showLog: function() {
+        eventBus.$emit('triggerEventBus', 100);
+      }
+    }
+  });
+  var app = new Vue({
+    el: '#app',
+    created: function() {
+      eventBus.$on('triggerEventBus', function(value) {
+        console.log('이벤트 전달 받음, 전달받은 값 : ', value);
+      })
+    }
+  });
+</script>
+</body>
+</html>
