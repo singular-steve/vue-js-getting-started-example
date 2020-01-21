@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue Template Example</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+<div id="app">
+  <h1>{{ title }}</h1>
+  <p v-bind:id="uid">{{ message }}</p>
+  <button v-on:click="showPopup">클릭</button>
+  <ul v-if="flag">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+</div>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      title: 'Vue Template Example',
+      message: 'Hello Vue.js',
+      uid: '20',
+      flag: true
+    },
+    methods: {
+      clickBtn() {
+        console.log("hi");
+      },
+      showPopup() {
+        this.flag = !this.flag;
+        alert("hi!");
+      }
+    }
+  });
+</script>
+</body>
+</html>

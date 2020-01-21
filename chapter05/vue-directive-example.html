@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue directive example</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+<div id="app">
+  <a v-if="flag">Welcome to Vue.js!</a>
+  <ul>
+    <li v-for="system in systems">{{ system }}</li>
+  </ul>
+  <p v-show="flag">Hello! Vue.js!</p>
+  <h5 v-bind:id="uid">뷰!</h5>
+  <button v-on:click="showPopup(uid)">팝업</button>
+</div>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      flag: true,
+      systems: ['android', 'ios', 'window'],
+      uid: 10
+    },
+    methods: {
+      showPopup: function(uid) {
+        console.log(uid);
+        return alert('팝업!');
+      }
+    }
+  });
+</script>
+</body>
+</html>

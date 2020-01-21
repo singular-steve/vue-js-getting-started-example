@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-bind example</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+<div id="app">
+  <p v-bind:id="idA">id binding</p>
+  <p v-bind:class="classA">class binding</p>
+  <p v-bind:style="styleA">style binding</p>
+</div>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      idA: 10,
+      classA: 'container',
+      styleA: 'color: blue'
+    }
+  });
+</script>
+</body>
+</html>
